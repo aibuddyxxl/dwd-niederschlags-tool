@@ -40,6 +40,7 @@ def generate_plot(df, datum, station_name):
     ax.set_title(f"Niederschlag am {datum.strftime('%d.%m.%Y')} - {station_name}")
     ax.set_xlabel("Stunde")
     ax.set_ylabel("Niederschlag [mm]")
+    ax.set_xticks(df['datetime'].dt.hour)
     ax.grid(True)
     return fig
 
