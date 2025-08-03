@@ -52,11 +52,17 @@ def generate_pdf(data_dict, datum):
     for station_name, info in data_dict.items():
         df = info["df"]
         fig = info["fig"]
+        station_id = stationen[station_name]["id"]
         coords = stationen[station_name]["coords"]
+        dwd_url = f"https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/hourly/precipitation/recent/stundenwerte_RR_{station_id}_akt.zip"
 
         pdf.add_page()
         pdf.cell(200, 10, txt=f"Station: {station_name} ({coords})", ln=1)
         pdf.cell(200, 8, txt=f"Datum: {datum.strftime('%d.%m.%Y')}", ln=1)
+        pdf.cell(200, 8, txt="Pfad zu den Rohdaten beim DWD:", ln=1)
+        pdf.set_text_color(0, 0, 255)
+        pdf.multi_cell(0, 8, txt=dwd_url)
+        pdf.set_text_color(0, 0, 0)
 
         total = df['precip_mm'].sum()
         pdf.cell(200, 8, txt=f"Tagesniederschlagssumme: {total:.1f} mm", ln=1)
