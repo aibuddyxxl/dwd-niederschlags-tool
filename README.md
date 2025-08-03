@@ -1,3 +1,3 @@
-# DWD Niederschlagsdaten Tool
+# DWD Niederschlagsvergleich
 
-Streamlit-App zur Anzeige und Export von stündlichen Niederschlagswerten vom DWD für Hamburg-Neuwiedenthal.
+Streamlit-App zur Anzeige stündlicher Niederschlagswerte zweier DWD-Wetterstationen in Hamburg inkl. CSV- und PDF-Export.
